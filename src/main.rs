@@ -57,14 +57,13 @@ fn git_clone(
 fn generate_config() {
     println!(
         r#"# repo with inventory file
-        repo_ssh_address: ssh://git@github.com:your/inventory/repo.git
-        # absolute path to private ssh key (should be accessible)
-        key_path: /absolute/path/private_key
-        # branch name of repo with inventory file
-        branch: any-name
-        # relative path to inventory directory or inventory file (inventory.yaml) - it will be used with ansible command
-        target: inventory
-        "#
+repo_ssh_address: ssh://git@github.com:your/inventory/repo.git
+# absolute path to private ssh key (should be accessible)
+key_path: /absolute/path/private_key
+# branch name of repo with inventory file
+branch: any-name
+# relative path to inventory directory or inventory file (inventory.yaml) - it will be used with ansible command
+target: inventory"#
     );
 }
 
