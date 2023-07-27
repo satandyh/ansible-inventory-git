@@ -1,0 +1,19 @@
+#cargo-features = ["strip"]
+[package]
+name = "ansible-inventory-git"
+version = "0.1.2"
+edition = "2021"
+repository = "https://github.com/satandyh/ansible-inventory-git"
+readme = "README.md"
+description = """
+An Ansible script that get external inventory and outputs to stdout.
+"""
+
+[dependencies]
+git2 = "0.17.2"
+serde = { version = "1.0", features = ["derive"] }
+serde_yaml = "0.9.25"
+rand = "0.8.5"
+
+[[bin]]
+name = "ansible-inventory-git"
