@@ -140,7 +140,8 @@ fn main() {
                 } else {
                     if let Some(value) = iter.peek() {
                         if !value.starts_with("-") {
-                            config_file_path = value.clone().to_string();
+                            //config_file_path = value.clone().to_string();
+                            config_file_path = value.to_string();
                         } else {
                             eprintln!("Error: Missing config file path");
                             print_help();
@@ -166,7 +167,8 @@ fn main() {
                 } else {
                     if let Some(value) = iter.peek() {
                         if !value.starts_with("-") {
-                            host = value.clone().to_string();
+                            //host = value.clone().to_string();
+                            host = value.to_string();
                         } else {
                             eprintln!("Error: Missing config file path");
                             print_help();
