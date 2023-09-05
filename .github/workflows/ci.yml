@@ -76,7 +76,7 @@ jobs:
           command: "build"
           target: ${{ matrix.platform.target }}
           toolchain: ${{ matrix.toolchain }}
-          args: "--release --lto"
+          args: "--release"
           #args: "--locked --release"
           strip: true
       - name: Run tests
