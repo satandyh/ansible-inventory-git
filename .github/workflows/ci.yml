@@ -68,7 +68,7 @@ jobs:
           git config --global user.email "satandyh@gmail.com"
           git config --global user.name "A. Gura"
       - name: Install musl-tools on Linux
-        run: sudo apt update --yes && sudo apt install --yes musl-tools
+        run: sudo apt update --yes && sudo apt install --yes musl-tools build-essential pkg-config libssl-dev
         if: contains(matrix.platform.name, 'musl')
       - name: Build binary
         uses: houseabsolute/actions-rust-cross@v0
