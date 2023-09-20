@@ -1,4 +1,4 @@
-use git2::{Cred, FetchOptions, RemoteCallbacks};
+use git2::{Cred, FetchOptions, RemoteCallbacks, CertificateCheckStatus};
 use rand::distributions::Alphanumeric;
 use rand::{thread_rng, Rng};
 use serde::Deserialize;
@@ -35,8 +35,14 @@ fn git_clone(
 ) -> Result<(), git2::Error> {
     let mut callbacks = RemoteCallbacks::new();
 
+    // Push our credentials
     callbacks.credentials(|_url, username_from_url, _allowed_types| {
         Cred::ssh_key(username_from_url.unwrap(), None, Path::new(key_path), None)
+    });
+
+    // Turn Off certificate check
+    callbacks.certificate_check(|_cert,_valid|{
+        Ok(CertificateCheckStatus::CertificateOk)
     });
 
     // Prepare fetch options
